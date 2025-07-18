@@ -1,0 +1,546 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		09F71E7A2E28C5FB002163DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09F71E632E28C5F8002163DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09F71E6A2E28C5F8002163DE;
+			remoteInfo = MovieVest;
+		};
+		09F71E842E28C5FB002163DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09F71E632E28C5F8002163DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09F71E6A2E28C5F8002163DE;
+			remoteInfo = MovieVest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09F71E6B2E28C5F8002163DE /* MovieVest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieVest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09F71E792E28C5FB002163DE /* MovieVestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieVestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09F71E832E28C5FB002163DE /* MovieVestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieVestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		09F71E6D2E28C5F8002163DE /* MovieVest */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MovieVest;
+			sourceTree = "<group>";
+		};
+		09F71E7C2E28C5FB002163DE /* MovieVestTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MovieVestTests;
+			sourceTree = "<group>";
+		};
+		09F71E862E28C5FB002163DE /* MovieVestUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MovieVestUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09F71E682E28C5F8002163DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09F71E762E28C5FB002163DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09F71E802E28C5FB002163DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09F71E622E28C5F8002163DE = {
+			isa = PBXGroup;
+			children = (
+				09F71E6D2E28C5F8002163DE /* MovieVest */,
+				09F71E7C2E28C5FB002163DE /* MovieVestTests */,
+				09F71E862E28C5FB002163DE /* MovieVestUITests */,
+				09F71E6C2E28C5F8002163DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		09F71E6C2E28C5F8002163DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09F71E6B2E28C5F8002163DE /* MovieVest.app */,
+				09F71E792E28C5FB002163DE /* MovieVestTests.xctest */,
+				09F71E832E28C5FB002163DE /* MovieVestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		09F71E6A2E28C5F8002163DE /* MovieVest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09F71E8D2E28C5FB002163DE /* Build configuration list for PBXNativeTarget "MovieVest" */;
+			buildPhases = (
+				09F71E672E28C5F8002163DE /* Sources */,
+				09F71E682E28C5F8002163DE /* Frameworks */,
+				09F71E692E28C5F8002163DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				09F71E6D2E28C5F8002163DE /* MovieVest */,
+			);
+			name = MovieVest;
+			packageProductDependencies = (
+			);
+			productName = MovieVest;
+			productReference = 09F71E6B2E28C5F8002163DE /* MovieVest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		09F71E782E28C5FB002163DE /* MovieVestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09F71E902E28C5FB002163DE /* Build configuration list for PBXNativeTarget "MovieVestTests" */;
+			buildPhases = (
+				09F71E752E28C5FB002163DE /* Sources */,
+				09F71E762E28C5FB002163DE /* Frameworks */,
+				09F71E772E28C5FB002163DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09F71E7B2E28C5FB002163DE /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				09F71E7C2E28C5FB002163DE /* MovieVestTests */,
+			);
+			name = MovieVestTests;
+			packageProductDependencies = (
+			);
+			productName = MovieVestTests;
+			productReference = 09F71E792E28C5FB002163DE /* MovieVestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		09F71E822E28C5FB002163DE /* MovieVestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09F71E932E28C5FB002163DE /* Build configuration list for PBXNativeTarget "MovieVestUITests" */;
+			buildPhases = (
+				09F71E7F2E28C5FB002163DE /* Sources */,
+				09F71E802E28C5FB002163DE /* Frameworks */,
+				09F71E812E28C5FB002163DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09F71E852E28C5FB002163DE /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				09F71E862E28C5FB002163DE /* MovieVestUITests */,
+			);
+			name = MovieVestUITests;
+			packageProductDependencies = (
+			);
+			productName = MovieVestUITests;
+			productReference = 09F71E832E28C5FB002163DE /* MovieVestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09F71E632E28C5F8002163DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					09F71E6A2E28C5F8002163DE = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					09F71E782E28C5FB002163DE = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 09F71E6A2E28C5F8002163DE;
+					};
+					09F71E822E28C5FB002163DE = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 09F71E6A2E28C5F8002163DE;
+					};
+				};
+			};
+			buildConfigurationList = 09F71E662E28C5F8002163DE /* Build configuration list for PBXProject "MovieVest" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 09F71E622E28C5F8002163DE;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 09F71E6C2E28C5F8002163DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				09F71E6A2E28C5F8002163DE /* MovieVest */,
+				09F71E782E28C5FB002163DE /* MovieVestTests */,
+				09F71E822E28C5FB002163DE /* MovieVestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		09F71E692E28C5F8002163DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09F71E772E28C5FB002163DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09F71E812E28C5FB002163DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09F71E672E28C5F8002163DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09F71E752E28C5FB002163DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09F71E7F2E28C5FB002163DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		09F71E7B2E28C5FB002163DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09F71E6A2E28C5F8002163DE /* MovieVest */;
+			targetProxy = 09F71E7A2E28C5FB002163DE /* PBXContainerItemProxy */;
+		};
+		09F71E852E28C5FB002163DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09F71E6A2E28C5F8002163DE /* MovieVest */;
+			targetProxy = 09F71E842E28C5FB002163DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		09F71E8B2E28C5FB002163DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		09F71E8C2E28C5FB002163DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		09F71E8E2E28C5FB002163DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MovieVest/MovieVest.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.adesh.MovieVest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		09F71E8F2E28C5FB002163DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MovieVest/MovieVest.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.adesh.MovieVest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		09F71E912E28C5FB002163DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.adesh.MovieVestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieVest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MovieVest";
+			};
+			name = Debug;
+		};
+		09F71E922E28C5FB002163DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.adesh.MovieVestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieVest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MovieVest";
+			};
+			name = Release;
+		};
+		09F71E942E28C5FB002163DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.adesh.MovieVestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MovieVest;
+			};
+			name = Debug;
+		};
+		09F71E952E28C5FB002163DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.adesh.MovieVestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MovieVest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09F71E662E28C5F8002163DE /* Build configuration list for PBXProject "MovieVest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09F71E8B2E28C5FB002163DE /* Debug */,
+				09F71E8C2E28C5FB002163DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09F71E8D2E28C5FB002163DE /* Build configuration list for PBXNativeTarget "MovieVest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09F71E8E2E28C5FB002163DE /* Debug */,
+				09F71E8F2E28C5FB002163DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09F71E902E28C5FB002163DE /* Build configuration list for PBXNativeTarget "MovieVestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09F71E912E28C5FB002163DE /* Debug */,
+				09F71E922E28C5FB002163DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09F71E932E28C5FB002163DE /* Build configuration list for PBXNativeTarget "MovieVestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09F71E942E28C5FB002163DE /* Debug */,
+				09F71E952E28C5FB002163DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 09F71E632E28C5F8002163DE /* Project object */;
+}
