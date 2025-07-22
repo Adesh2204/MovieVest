@@ -1,29 +1,6 @@
 import SwiftUI
 import Foundation
 
-// MARK: - Models
-struct Movie: Identifiable {
-    let id = UUID()
-    let title: String
-    let platform: String
-    let releaseDate: String
-    let poster: String // Image asset name
-    let tag: MovieTag?
-}
-
-enum MovieTag: String {
-    case hotPick = "🔥 Hot Pick"
-    case lowRisk = "📉 Low Risk"
-    case trending = "🎯 Trending"
-    var color: Color {
-        switch self {
-        case .hotPick: return .pink
-        case .lowRisk: return .teal
-        case .trending: return .green
-        }
-    }
-}
-
 // MARK: - ViewModel
 class InvestingViewModel: ObservableObject {
     @Published var selectedPlatform: String = "All Platforms"
@@ -32,12 +9,12 @@ class InvestingViewModel: ObservableObject {
     let platforms = ["All Platforms", "Netflix", "Prime Video", "Hulu", "Paramount+", "HBO Max", "A24"]
     let moviesPerPage = 6
     @Published var movies: [Movie] = [
-        Movie(title: "The Cosmic Front", platform: "Prime Video", releaseDate: "Dec 2024", poster: "cosmic", tag: .hotPick),
-        Movie(title: "Echoes of the Past", platform: "A24", releaseDate: "Jan 2025", poster: "echoes", tag: .trending),
-        Movie(title: "Neon City Nights", platform: "Netflix", releaseDate: "Nov 2024", poster: "neoncity", tag: .lowRisk),
-        Movie(title: "Whispers of the Dead", platform: "HBO Max", releaseDate: "Feb 2025", poster: "whispers", tag: nil),
-        Movie(title: "Starlight Serenade", platform: "Hulu", releaseDate: "Mar 2025", poster: "starlight", tag: nil),
-        Movie(title: "Crimson", platform: "Paramount+", releaseDate: "Apr 2025", poster: "crimson", tag: nil)
+        Movie(title: "The Cosmic Front", platform: "Prime Video", release: "Dec 2024", imageName: "film", tag: "Hot Pick"),
+        Movie(title: "Echoes of the Past", platform: "A24", release: "Jan 2025", imageName: "film.fill", tag: "Trending"),
+        Movie(title: "Neon City Nights", platform: "Netflix", release: "Nov 2024", imageName: "tv", tag: "Low Risk"),
+        Movie(title: "Whispers of the Dead", platform: "HBO Max", release: "Feb 2025", imageName: "ticket", tag: nil),
+        Movie(title: "Starlight Serenade", platform: "Hulu", release: "Mar 2025", imageName: "music.note", tag: nil),
+        Movie(title: "Crimson", platform: "Paramount+", release: "Apr 2025", imageName: "hand.raised.fill", tag: nil)
     ]
     var filteredMovies: [Movie] {
         let filtered = movies.filter { (selectedPlatform == "All Platforms" || $0.platform == selectedPlatform) && (searchText.isEmpty || $0.title.localizedCaseInsensitiveContains(searchText)) }
@@ -59,10 +36,10 @@ struct InvestingView: View {
     @Namespace private var animation
     var body: some View {
         ZStack {
-            AnimatedBackground()
+            CyberpunkHeroBackgroundView()
             VStack(spacing: 0) {
-                HeaderView()
-                Divider().opacity(0.2)
+                // Removed HeaderView()
+                // Divider().opacity(0.2) // Remove divider under header
                 mainSection
             }
             .padding(.horizontal, 32)
@@ -73,21 +50,23 @@ struct InvestingView: View {
     var mainSection: some View {
         VStack(alignment: .leading, spacing: 24) {
             Text("Invest in Upcoming Releases")
-                .font(.system(size: 38, weight: .bold, design: .rounded))
-                .foregroundStyle(.white)
-                .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 2)
+                .font(.system(size: 50, weight: .bold, design: .rounded))
+                .foregroundColor(.black)
+                .shadow(color: .white.opacity(0.2), radius: 8, x: 0, y: 2)
             Text("Explore and invest in the next big hits from the world of cinema and streaming.")
-                .font(.title3)
-                .foregroundStyle(.white.opacity(0.8))
+                .font(.system(size: 28))
+                    .bold()
+                .foregroundColor(.black.opacity(0.8))
             HStack(spacing: 16) {
-                Picker("Platform", selection: $vm.selectedPlatform) {
-                    ForEach(vm.platforms, id: \ .self) { Text($0) }
+                Picker("Platform", selection: $vm.selectedPlatform){
+                    ForEach(vm.platforms, id: \ .self) { Text($0).foregroundColor(.black) }
                 }
                 .pickerStyle(MenuPickerStyle())
                 .frame(width: 180)
                 TextField("Search movies...", text: $vm.searchText)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .frame(width: 260)
+                    .foregroundColor(.black)
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 28) {
@@ -113,7 +92,7 @@ struct InvestingView: View {
                         .fontWeight(.semibold)
                         .frame(width: 36, height: 36)
                         .background(vm.currentPage == page ? Color.cyan.opacity(0.8) : Color.white.opacity(0.12))
-                        .foregroundStyle(vm.currentPage == page ? .white : .white.opacity(0.7))
+                        .foregroundColor(vm.currentPage == page ? .black : .black.opacity(0.7))
                         .clipShape(Circle())
                         .shadow(color: vm.currentPage == page ? .cyan.opacity(0.3) : .clear, radius: 8, x: 0, y: 2)
                 }
@@ -254,14 +233,14 @@ struct MovieCardView: View {
             }
             Text(movie.title)
                 .font(.headline)
-                .foregroundStyle(.white)
+                .foregroundColor(.black)
                 .lineLimit(2)
             Text(movie.platform)
                 .font(.subheadline)
-                .foregroundStyle(.cyan)
+                .foregroundColor(.cyan)
             Text(movie.releaseDate)
                 .font(.caption)
-                .foregroundStyle(.white.opacity(0.7))
+                .foregroundColor(.black.opacity(0.7))
             Spacer(minLength: 0)
             Button(action: {}) {
                 Text("Invest")
@@ -435,18 +414,7 @@ struct FilmReelTexture: View {
     }
 }
 
-// MARK: - BlurView Helper
-struct BlurView: NSViewRepresentable {
-    let style: NSVisualEffectView.Material
-    func makeNSView(context: Context) -> NSVisualEffectView {
-        let view = NSVisualEffectView()
-        view.material = style
-        view.blendingMode = .withinWindow
-        view.state = .active
-        return view
-    }
-    func updateNSView(_ nsView: NSVisualEffectView, context: Context) {}
-}
+
 
 // MARK: - Preview
 struct InvestingView_Previews: PreviewProvider {
