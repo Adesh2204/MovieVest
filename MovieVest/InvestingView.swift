@@ -50,15 +50,14 @@ struct InvestingView: View {
     var mainSection: some View {
         VStack(alignment: .leading, spacing: 24) {
             Text("Invest in Upcoming Releases")
-                .font(.system(size: 50, weight: .bold, design: .rounded))
+                .font(.system(size: 38, weight: .bold, design: .rounded))
                 .foregroundColor(.black)
                 .shadow(color: .white.opacity(0.2), radius: 8, x: 0, y: 2)
             Text("Explore and invest in the next big hits from the world of cinema and streaming.")
-                .font(.system(size: 28))
-                    .bold()
+                .font(.title2)
                 .foregroundColor(.black.opacity(0.8))
             HStack(spacing: 16) {
-                Picker("Platform", selection: $vm.selectedPlatform){
+                Picker("Platform", selection: $vm.selectedPlatform) {
                     ForEach(vm.platforms, id: \ .self) { Text($0).foregroundColor(.black) }
                 }
                 .pickerStyle(MenuPickerStyle())
