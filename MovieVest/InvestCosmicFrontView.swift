@@ -126,7 +126,7 @@ struct InvestCosmicFrontView: View {
 
                     // 6. Call-to-Action Section
                     VStack(spacing: 18) {
-                        Text("Investment Starts with only 1 token Rs 2000 + G.S.T")
+                        Text("Invest now with only 1 token Rs 2000 + G.S.T and get returns upto 3% per month")
                             .font(.title2.bold())
                             .foregroundColor(.black)
                         Button(action: {}) {

@@ -35,17 +35,19 @@ struct InvestingView: View {
     @StateObject private var vm = InvestingViewModel()
     @Namespace private var animation
     var body: some View {
-        ZStack {
-            CyberpunkHeroBackgroundView()
-            VStack(spacing: 0) {
-                // Removed HeaderView()
-                // Divider().opacity(0.2) // Remove divider under header
-                mainSection
+        NavigationView {
+            ZStack {
+                CyberpunkHeroBackgroundView()
+                VStack(spacing: 0) {
+                    // Removed HeaderView()
+                    // Divider().opacity(0.2) // Remove divider under header
+                    mainSection
+                }
+                .padding(.horizontal, 32)
+                .padding(.top, 16)
             }
-            .padding(.horizontal, 32)
-            .padding(.top, 16)
+            .frame(minWidth: 1100, minHeight: 800)
         }
-        .frame(minWidth: 1100, minHeight: 800)
     }
     var mainSection: some View {
         VStack(alignment: .leading, spacing: 24) {
@@ -78,7 +80,7 @@ struct InvestingView: View {
             pagination
         }
         .padding(.top, 32)
-        .background(.ultraThinMaterial)
+        .background(Color.black.opacity(0.1))
         .clipShape(RoundedRectangle(cornerRadius: 32, style: .continuous))
         .shadow(color: .black.opacity(0.18), radius: 32, x: 0, y: 16)
         .padding(.vertical, 32)
@@ -241,19 +243,36 @@ struct MovieCardView: View {
                 .font(.caption)
                 .foregroundColor(.black.opacity(0.7))
             Spacer(minLength: 0)
-            Button(action: {}) {
-                Text("Invest")
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 10)
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.purple]), startPoint: .leading, endPoint: .trailing)
-                    )
-                    .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    .shadow(color: .cyan.opacity(0.25), radius: 8, x: 0, y: 4)
-                    .scaleEffect(isHovering ? 1.05 : 1.0)
-                    .animation(.spring(response: 0.35, dampingFraction: 0.7), value: isHovering)
+            if movie.title == "The Cosmic Front" {
+                NavigationLink(destination: InvestCosmicFrontView()) {
+                    Text("Invest")
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 10)
+                        .background(
+                            LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.purple]), startPoint: .leading, endPoint: .trailing)
+                        )
+                        .foregroundStyle(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        .shadow(color: .cyan.opacity(0.25), radius: 8, x: 0, y: 4)
+                        .scaleEffect(isHovering ? 1.05 : 1.0)
+                        .animation(.spring(response: 0.35, dampingFraction: 0.7), value: isHovering)
+                }
+            } else {
+                Button(action: {}) {
+                    Text("Invest")
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 10)
+                        .background(
+                            LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.purple]), startPoint: .leading, endPoint: .trailing)
+                        )
+                        .foregroundStyle(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        .shadow(color: .cyan.opacity(0.25), radius: 8, x: 0, y: 4)
+                        .scaleEffect(isHovering ? 1.05 : 1.0)
+                        .animation(.spring(response: 0.35, dampingFraction: 0.7), value: isHovering)
+                }
             }
             .buttonStyle(PlainButtonStyle())
             .onHover { hovering in
@@ -263,7 +282,7 @@ struct MovieCardView: View {
         .padding(18)
         .frame(width: 200, height: 390)
         .background(
-            BlurView(style: .underWindowBackground)
+            Color.black.opacity(0.15)
                 .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         )
         .overlay(

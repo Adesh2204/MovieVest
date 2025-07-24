@@ -18,141 +18,140 @@ struct ContentView: View {
     @State private var howItWorksPressed = false
     
     var body: some View {
-        ZStack {
-            // Cyberpunk Hero Background
-            CyberpunkHeroBackgroundView()
-                .edgesIgnoringSafeArea(.all)
-            
-            ScrollView(.vertical, showsIndicators: true) {
-                VStack(spacing: 48) {
-                    // Header Section with Carousel
-                    HStack(alignment: .center, spacing: 48) {
-                        VStack(alignment: .leading, spacing: 20) {
-                            // Main Title
-                            Text("MovieVest")
-                                .font(.system(size: 70, weight: .bold, design: .rounded))
-                                .foregroundColor(Color.black)
-                                .shadow(color: Color.purple.opacity(0.6), radius: 10, x: 0, y: 6)
-                                .padding(.bottom, 8)
-                            // Summary
-                            Text("Step into the future of film finance. MovieVest empowers you to invest in visionary films, connect with a passionate community, and experience the pulse of cinema's next wave.")
-                                .font(.system(size: 30, weight: .medium, design: .rounded))
-                                .foregroundColor(Color.black)
-                                .padding(.bottom, 18)
-                                .lineSpacing(6)
-                                .shadow(color: Color.purple.opacity(0.25), radius: 4, x: 0, y: 2)
-                            // Buttons with blue border effect
-                            HStack(spacing: 32) {
-                                Button(action: {
-                                    explorePressed.toggle()
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        explorePressed = false
+        NavigationView {
+            ZStack {
+                // Cyberpunk Hero Background
+                CyberpunkHeroBackgroundView()
+                    .edgesIgnoringSafeArea(.all)
+                
+                ScrollView(.vertical, showsIndicators: true) {
+                    VStack(spacing: 48) {
+                        // Header Section with Carousel
+                        HStack(alignment: .center, spacing: 48) {
+                            VStack(alignment: .leading, spacing: 20) {
+                                // Main Title
+                                Text("MovieVest")
+                                    .font(.system(size: 70, weight: .bold, design: .rounded))
+                                    .foregroundColor(Color.black)
+                                    .shadow(color: Color.purple.opacity(0.6), radius: 10, x: 0, y: 6)
+                                    .padding(.bottom, 8)
+                                // Summary
+                                Text("Step into the future of film finance. MovieVest empowers you to invest in visionary films, connect with a passionate community, and experience the pulse of cinema's next wave.")
+                                    .font(.system(size: 30, weight: .medium, design: .rounded))
+                                    .foregroundColor(Color.black)
+                                    .padding(.bottom, 18)
+                                    .lineSpacing(6)
+                                    .shadow(color: Color.purple.opacity(0.25), radius: 4, x: 0, y: 2)
+                                // Buttons with blue border effect
+                                HStack(spacing: 24) {
+                                    NavigationLink(destination: InvestingView()) {
+                                        Text("Explore Releases")
+                                            .font(.headline)
+                                            .padding(.horizontal, 28)
+                                            .padding(.vertical, 14)
+                                            .background(
+                                                LinearGradient(gradient: Gradient(colors: [Color.pink, Color.purple]), startPoint: .leading, endPoint: .trailing)
+                                                    .clipShape(Capsule())
+                                            )
+                                            .foregroundColor(.black)
+                                            .clipShape(Capsule())
+                                            .shadow(color: Color.pink.opacity(0.4), radius: 10, x: 0, y: 4)
                                     }
-                                }) {
-                                    Text("Explore Releases")
-                                        .font(.title.bold())
-                                        .foregroundColor(.white)
-                                        .padding(.horizontal, 48)
-                                        .padding(.vertical, 22)
-                                        .background(Color.red.clipShape(Capsule()))
-                                        .overlay(
-                                            Capsule()
-                                                .stroke(explorePressed ? Color.blue : Color.clear, lineWidth: explorePressed ? 4 : 0)
-                                                .shadow(color: explorePressed ? Color.blue : Color.clear, radius: explorePressed ? 10 : 0)
-                                        )
-                                        .shadow(radius: 10)
-                                }
-                                
-                                Button(action: {
-                                    howItWorksPressed.toggle()
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        howItWorksPressed = false
+                                    
+                                    Button(action: {
+                                        howItWorksPressed.toggle()
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                            howItWorksPressed = false
+                                        }
+                                    }) {
+                                        Text("How It Works")
+                                            .font(.headline)
+                                            .padding(.horizontal, 28)
+                                            .padding(.vertical, 14)
+                                            .background(
+                                                Color.black.opacity(0.8)
+                                                    .clipShape(Capsule())
+                                                    .overlay(
+                                                        Capsule()
+                                                            .stroke(Color.purple.opacity(0.8), lineWidth: 2)
+                                                    )
+                                            )
+                                            .foregroundColor(.white)
+                                            .clipShape(Capsule())
+                                            .shadow(color: Color.purple.opacity(0.4), radius: 10, x: 0, y: 4)
                                     }
-                                }) {
-                                    Text("How It Works")
-                                        .font(.title.bold())
-                                        .foregroundColor(.white)
-                                        .padding(.horizontal, 48)
-                                        .padding(.vertical, 22)
-                                        .background(Color.black.clipShape(Capsule()))
-                                        .overlay(
-                                            Capsule()
-                                                .stroke(howItWorksPressed ? Color.blue : Color.clear, lineWidth: howItWorksPressed ? 4 : 0)
-                                                .shadow(color: howItWorksPressed ? Color.blue : Color.clear, radius: howItWorksPressed ? 10 : 0)
-                                        )
-                                        .shadow(radius: 10)
                                 }
                             }
+                            // Image Carousel
+                            MovieCarouselView()
+                                .frame(width: 440, height: 320)
+                                .clipShape(RoundedRectangle(cornerRadius: 32, style: .continuous))
+                                .shadow(color: Color.purple.opacity(0.45), radius: 18, x: 0, y: 8)
                         }
-                        // Image Carousel
-                        MovieCarouselView()
-                            .frame(width: 440, height: 320)
-                            .clipShape(RoundedRectangle(cornerRadius: 32, style: .continuous))
-                            .shadow(color: Color.purple.opacity(0.45), radius: 18, x: 0, y: 8)
-                    }
-                    .padding(40)
-                    .frame(maxWidth: .infinity)
-                    
-                    // Trending Investments Section
-                    VStack(spacing: 36) {
-                        Text("Trending Investments")
-                            .font(.system(size: 36, weight: .bold))
-                            .foregroundColor(.black)
+                        .padding(40)
+                        .frame(maxWidth: .infinity)
+                        
+                        // Trending Investments Section
+                        VStack(spacing: 36) {
+                            Text("Trending Investments")
+                                .font(.system(size: 36, weight: .bold))
+                                .foregroundColor(.black)
+                                .frame(maxWidth: .infinity)
+                            HStack(spacing: 40) {
+                                ForEach(trendingMovies) { movie in
+                                    InvestmentCard(
+                                        title: movie.title,
+                                        tag: (movie.tag, movie.tagColor),
+                                        platform: movie.platform
+                                    )
+                                    .frame(width: 320, height: 180)
+                                }
+                            }
                             .frame(maxWidth: .infinity)
-                        HStack(spacing: 40) {
-                            ForEach(trendingMovies) { movie in
-                                InvestmentCard(
-                                    title: movie.title,
-                                    tag: (movie.tag, movie.tagColor),
-                                    platform: movie.platform
-                                )
-                                .frame(width: 320, height: 180)
-                            }
                         }
+                        .padding(32)
+                        .background(Color.white.opacity(0.13))
+                        .cornerRadius(36)
+                        .frame(maxWidth: .infinity)
+                        
+                        // Portfolio Section (Vertical, Full Width)
+                        VStack(spacing: 48) {
+                            PortfolioRow(
+                                imageName: "CosmicFront",
+                                title: "The Cosmic Front",
+                                platform: "Prime Video",
+                                investmentAmount: "₹10,000",
+                                currentGain: "+₹2,000",
+                                gainColor: .green,
+                                summary: "A visually stunning sci-fi epic about humanity's journey to the edge of the universe, blending breathtaking visuals with a gripping story of hope and discovery.",
+                                barData: [2000, 1000, -500, 1500, 2000, -1000, 500],
+                                support: 0,
+                                resistance: 2000,
+                                barColor: .green
+                            )
+                            PortfolioRow(
+                                imageName: "NeoncityLights",
+                                title: "Neon City Lights",
+                                platform: "Netflix",
+                                investmentAmount: "₹15,000",
+                                currentGain: "+₹4,000",
+                                gainColor: .green,
+                                summary: "A neon-drenched thriller set in a futuristic metropolis, where ambition and danger collide in a race for survival and fortune.",
+                                barData: [1000, -500, 2000, 500, -1500, 2000, 1000],
+                                support: -1500,
+                                resistance: 2000,
+                                barColor: .purple
+                            )
+                        }
+                        .padding(32)
+                        .background(Color.white.opacity(0.13))
+                        .cornerRadius(36)
                         .frame(maxWidth: .infinity)
                     }
-                    .padding(32)
-                    .background(Color.white.opacity(0.13))
-                    .cornerRadius(36)
-                    .frame(maxWidth: .infinity)
-                    
-                    // Portfolio Section (Vertical, Full Width)
-                    VStack(spacing: 48) {
-                        PortfolioRow(
-                            imageName: "CosmicFront",
-                            title: "The Cosmic Front",
-                            platform: "Prime Video",
-                            investmentAmount: "₹10,000",
-                            currentGain: "+₹2,000",
-                            gainColor: .green,
-                            summary: "A visually stunning sci-fi epic about humanity's journey to the edge of the universe, blending breathtaking visuals with a gripping story of hope and discovery.",
-                            barData: [2000, 1000, -500, 1500, 2000, -1000, 500],
-                            support: 0,
-                            resistance: 2000,
-                            barColor: .green
-                        )
-                        PortfolioRow(
-                            imageName: "NeoncityLights",
-                            title: "Neon City Lights",
-                            platform: "Netflix",
-                            investmentAmount: "₹15,000",
-                            currentGain: "+₹4,000",
-                            gainColor: .green,
-                            summary: "A neon-drenched thriller set in a futuristic metropolis, where ambition and danger collide in a race for survival and fortune.",
-                            barData: [1000, -500, 2000, 500, -1500, 2000, 1000],
-                            support: -1500,
-                            resistance: 2000,
-                            barColor: .purple
-                        )
-                    }
-                    .padding(32)
-                    .background(Color.white.opacity(0.13))
-                    .cornerRadius(36)
+                    .padding(.horizontal, 40)
+                    .padding(.vertical, 40)
                     .frame(maxWidth: .infinity)
                 }
-                .padding(.horizontal, 40)
-                .padding(.vertical, 40)
-                .frame(maxWidth: .infinity)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
