@@ -42,3 +42,5 @@
    ```bash
    git clone https://github.com/yourusername/movie-vest.git
    cd movie-vest
+ 2. Open in Xcode:
+ 4. Open WarGame.xcodeproj
