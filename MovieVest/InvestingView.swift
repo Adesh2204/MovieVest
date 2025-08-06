@@ -51,7 +51,7 @@ struct InvestingView: View {
     }
     var mainSection: some View {
         VStack(alignment: .leading, spacing: 24) {
-            Text("Invest in Upcoming Release")
+            Text("Invest in Upcoming Releases")
                 .font(.system(size: 38, weight: .bold, design: .rounded))
                 .foregroundColor(.black)
                 .shadow(color: .white.opacity(0.2), radius: 8, x: 0, y: 2)
