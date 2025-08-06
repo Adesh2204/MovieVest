@@ -59,25 +59,32 @@ struct InvestingView: View {
                 .font(.title2)
                 .foregroundColor(.black.opacity(0.8))
             HStack(spacing: 16) {
-                Picker("Platform", selection: $vm.selectedPlatform) {
-                    ForEach(vm.platforms, id: \ .self) { Text($0).foregroundColor(.black) }
+                let platforms = vm.platforms
+                let selectedPlatform = $vm.selectedPlatform
+                Picker("Platform", selection: selectedPlatform) {
+                    ForEach(platforms, id: \ .self) { platform in
+                        Text(platform).foregroundColor(.black)
+                    }
                 }
                 .pickerStyle(MenuPickerStyle())
                 .frame(width: 180)
-                TextField("Search movies...", text: $vm.searchText)
+                let searchText = $vm.searchText
+                TextField("Search movies...", text: searchText)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .frame(width: 260)
                     .foregroundColor(.black)
             }
             ScrollView(.horizontal, showsIndicators: false) {
+                let pagedMovies = vm.pagedMovies
                 HStack(spacing: 28) {
-                    ForEach(vm.pagedMovies) { movie in
+                    ForEach(pagedMovies) { movie in
                         MovieCardView(movie: movie, animation: animation)
                     }
                 }
                 .padding(.vertical, 8)
             }
-            pagination
+            let totalPages = vm.totalPages
+            pagination(totalPages: totalPages)
         }
         .padding(.top, 32)
         .background(Color.black.opacity(0.1))
@@ -85,9 +92,9 @@ struct InvestingView: View {
         .shadow(color: .black.opacity(0.18), radius: 32, x: 0, y: 16)
         .padding(.vertical, 32)
     }
-    var pagination: some View {
+    func pagination(totalPages: Int) -> some View {
         HStack(spacing: 12) {
-            ForEach(1...vm.totalPages, id: \ .self) { page in
+            ForEach(1...totalPages, id: \ .self) { page in
                 Button(action: { vm.currentPage = page }) {
                     Text("\(page)")
                         .fontWeight(.semibold)
@@ -161,76 +168,100 @@ struct MovieCardView: View {
     @State private var isHovering = false
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            ZStack(alignment: .topLeading) {
-                Group {
-                    if movie.title == "The Cosmic Front" {
+            // Break up the ZStack for type-checking
+            let mainImage: AnyView = {
+                if movie.title == "The Cosmic Front" {
+                    return AnyView(
                         Image("CosmicFront")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 170, height: 250)
                             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                             .clipped()
-                    } else if movie.title == "Crimson" {
+                    )
+                } else if movie.title == "Crimson" {
+                    return AnyView(
                         Image("Crimson")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 170, height: 250)
                             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                             .clipped()
-                    } else if movie.title == "Echoes of the Past" {
+                    )
+                } else if movie.title == "Echoes of the Past" {
+                    return AnyView(
                         Image("Echosofthepast")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 170, height: 250)
                             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                             .clipped()
-                    } else if movie.title == "Neon City Nights" {
+                    )
+                } else if movie.title == "Neon City Nights" {
+                    return AnyView(
                         Image("NeoncityLights")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 170, height: 250)
                             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                             .clipped()
-                    } else if movie.title == "Starlight Serenade" {
+                    )
+                } else if movie.title == "Starlight Serenade" {
+                    return AnyView(
                         Image("StarlightSerenade")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 170, height: 250)
                             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                             .clipped()
-                    } else if movie.title == "Whispers of the Dead" {
+                    )
+                } else if movie.title == "Whispers of the Dead" {
+                    return AnyView(
                         Image("WhispersoftheDead")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 170, height: 250)
                             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                             .clipped()
-                    }
-                }
-                Image(movie.poster)
-                    .resizable()
-                    .aspectRatio(0.7, contentMode: .fill)
-                    .frame(width: 170, height: 250)
-                    .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-                    .shadow(color: .black.opacity(0.22), radius: 16, x: 0, y: 8)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 18)
-                            .stroke(isHovering ? Color.cyan.opacity(0.7) : Color.clear, lineWidth: 3)
-                            .animation(.easeInOut(duration: 0.25), value: isHovering)
                     )
-                if let tag = movie.tag {
-                    Text(tag.rawValue)
-                        .font(.caption2)
-                        .fontWeight(.bold)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 4)
-                        .background(tag.color.opacity(0.92))
-                        .foregroundStyle(.white)
-                        .clipShape(Capsule())
-                        .padding(10)
-                        .shadow(radius: 6)
-                        .transition(.move(edge: .top).combined(with: .opacity))
+                } else {
+                    return AnyView(EmptyView())
                 }
+            }()
+            let posterOverlay = Image(movie.poster)
+                .resizable()
+                .aspectRatio(0.7, contentMode: .fill)
+                .frame(width: 170, height: 250)
+                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                .shadow(color: .black.opacity(0.22), radius: 16, x: 0, y: 8)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 18)
+                        .stroke(isHovering ? Color.cyan.opacity(0.7) : Color.clear, lineWidth: 3)
+                        .animation(.easeInOut(duration: 0.25), value: isHovering)
+                )
+            let tagView: AnyView = {
+                if let tag = movie.tag {
+                    return AnyView(
+                        Text(tag.rawValue)
+                            .font(.caption2)
+                            .fontWeight(.bold)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 4)
+                            .background(tag.color.opacity(0.92))
+                            .foregroundStyle(.white)
+                            .clipShape(Capsule())
+                            .padding(10)
+                            .shadow(radius: 6)
+                            .transition(.move(edge: .top).combined(with: .opacity))
+                    )
+                } else {
+                    return AnyView(EmptyView())
+                }
+            }()
+            ZStack(alignment: .topLeading) {
+                mainImage
+                posterOverlay
+                tagView
             }
             Text(movie.title)
                 .font(.headline)
@@ -258,6 +289,10 @@ struct MovieCardView: View {
                         .scaleEffect(isHovering ? 1.05 : 1.0)
                         .animation(.spring(response: 0.35, dampingFraction: 0.7), value: isHovering)
                 }
+                .buttonStyle(PlainButtonStyle())
+                .onHover { hovering in
+                    withAnimation { isHovering = hovering }
+                }
             } else {
                 Button(action: {}) {
                     Text("Invest")
@@ -273,10 +308,10 @@ struct MovieCardView: View {
                         .scaleEffect(isHovering ? 1.05 : 1.0)
                         .animation(.spring(response: 0.35, dampingFraction: 0.7), value: isHovering)
                 }
-            }
-            .buttonStyle(PlainButtonStyle())
-            .onHover { hovering in
-                withAnimation { isHovering = hovering }
+                .buttonStyle(PlainButtonStyle())
+                .onHover { hovering in
+                    withAnimation { isHovering = hovering }
+                }
             }
         }
         .padding(18)
@@ -290,9 +325,6 @@ struct MovieCardView: View {
                 .stroke(isHovering ? Color.cyan.opacity(0.4) : Color.white.opacity(0.08), lineWidth: 1.5)
         )
         .shadow(color: .black.opacity(0.22), radius: 18, x: 0, y: 10)
-        .onHover { hovering in
-            withAnimation { isHovering = hovering }
-        }
     }
 }
 
@@ -434,13 +466,8 @@ struct FilmReelTexture: View {
 
 
 
-// MARK: - Preview
-struct InvestingView_Previews: PreviewProvider {
-    static var previews: some View {
-        InvestingView()
-            .preferredColorScheme(.dark)
-            .frame(width: 1400, height: 900)
-    }
+#Preview {
+    InvestingView()
 }
 
 

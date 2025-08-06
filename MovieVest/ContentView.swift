@@ -69,11 +69,11 @@ struct ContentView: View {
                                             .padding(.horizontal, 28)
                                             .padding(.vertical, 14)
                                             .background(
-                                                Color.black.opacity(0.8)
+                                                Color.black
                                                     .clipShape(Capsule())
                                                     .overlay(
                                                         Capsule()
-                                                            .stroke(Color.purple.opacity(0.8), lineWidth: 2)
+                                                            .stroke(Color.purple, lineWidth: 2)
                                                     )
                                             )
                                             .foregroundColor(.white)
@@ -211,7 +211,7 @@ struct PortfolioRow: View {
         HStack(alignment: .top, spacing: 48) {
             ZStack {
                 RoundedRectangle(cornerRadius: 36, style: .continuous)
-                    .fill(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(0.18), Color.cyan.opacity(0.13), Color.white.opacity(0.85)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(0.18), Color.cyan.opacity(0.13)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                     .shadow(color: Color.purple.opacity(0.18), radius: 18, x: 0, y: 8)
                 HStack(spacing: 36) {
                     Image(imageName)
